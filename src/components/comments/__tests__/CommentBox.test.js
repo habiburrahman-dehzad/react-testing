@@ -15,7 +15,7 @@ it('shows a form with a text area and submit button', () => {
   const formElement = screen.getByRole('form');
   expect(formElement).toBeInTheDocument();
   expect(formElement).toHaveFormValues({ comment: '' });
-  expect(screen.queryByRole('button')).toBeInTheDocument();
+  expect(screen.getByText(/submit/i)).toBeInTheDocument();
 });
 
 describe('comment form', () => {

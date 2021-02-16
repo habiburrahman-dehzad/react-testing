@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { MDBBtn } from 'mdbreact';
 import { connect } from 'react-redux';
-import { saveComment } from '../../store/actions/commentActions';
+import { saveComment, fetchComments } from '../../store/actions/commentActions';
 
-const CommentBox = ({ saveComment }) => {
+const CommentBox = ({ saveComment, fetchComments }) => {
   const [formValues, setFormValues] = useState({
     comment: '',
   });
@@ -32,8 +32,11 @@ const CommentBox = ({ saveComment }) => {
           Submit Comment
         </MDBBtn>
       </form>
+      <MDBBtn color='teal' onClick={fetchComments}>
+        Fetch Comments
+      </MDBBtn>
     </div>
   );
 };
 
-export default connect(null, { saveComment })(CommentBox);
+export default connect(null, { saveComment, fetchComments })(CommentBox);
