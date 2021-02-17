@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import requireAuth from '../requireAuth';
 import { MDBBtn } from 'mdbreact';
 import { connect } from 'react-redux';
 import { saveComment, fetchComments } from '../../store/actions/commentActions';
@@ -39,4 +40,6 @@ const CommentBox = ({ saveComment, fetchComments }) => {
   );
 };
 
-export default connect(null, { saveComment, fetchComments })(CommentBox);
+export default connect(null, { saveComment, fetchComments })(
+  requireAuth(CommentBox)
+);

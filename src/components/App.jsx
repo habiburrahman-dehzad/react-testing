@@ -1,4 +1,4 @@
-import './App.css';
+import { Route } from 'react-router-dom';
 import CommentBox from './comments/CommentBox';
 import CommentList from './comments/CommentList';
 import Navbar from './layout/Navbar';
@@ -11,8 +11,8 @@ function App() {
       <Navbar />
       <MDBContainer className='mt-4'>
         <MDBCol sm='10' md='8'>
-          <CommentBox />
-          <CommentList />
+          <Route path='/post' component={CommentBox} />
+          <Route path='/' exact component={CommentList} />
         </MDBCol>
       </MDBContainer>
     </Fragment>
